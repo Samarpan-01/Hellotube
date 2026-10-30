@@ -1,0 +1,8 @@
+{
+  "name": "Remix Hello Reno",
+  "description": "Ad-free YouTube client for Reno 11 with high-fidelity audio and personalized EQ settings for manual testing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
