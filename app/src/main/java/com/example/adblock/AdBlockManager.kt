@@ -121,6 +121,7 @@ object AdBlockManager {
     )
   }
 
+  @Synchronized
   private fun recordBlocked(domain: String) {
     _blockedAdsCount.value += 1
     val current = _recentBlockedDomains.value.toMutableList()
@@ -129,6 +130,7 @@ object AdBlockManager {
     _recentBlockedDomains.value = current
   }
 
+  @Synchronized
   fun resetStats() {
     _blockedAdsCount.value = 0
     _blockedTrackersCount.value = 0

@@ -98,4 +98,22 @@ object Reno11DeviceInspector {
       audioOutputs = audioRoutes
     )
   }
+
+  fun isEmulatorEnvironment(): Boolean {
+    val model = Build.MODEL
+    val product = Build.PRODUCT
+    val hardware = Build.HARDWARE
+    val fingerprint = Build.FINGERPRINT
+    return fingerprint.startsWith("generic") ||
+        fingerprint.startsWith("unknown") ||
+        model.contains("google_sdk", ignoreCase = true) ||
+        model.contains("Emulator", ignoreCase = true) ||
+        model.contains("Android SDK built for", ignoreCase = true) ||
+        hardware.contains("goldfish", ignoreCase = true) ||
+        hardware.contains("ranchu", ignoreCase = true) ||
+        hardware.contains("cuttlefish", ignoreCase = true) ||
+        product.contains("sdk", ignoreCase = true) ||
+        product.contains("emulator", ignoreCase = true) ||
+        product.contains("cuttlefish", ignoreCase = true)
+  }
 }
